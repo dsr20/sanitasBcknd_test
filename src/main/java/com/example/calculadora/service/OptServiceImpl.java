@@ -7,6 +7,10 @@ import com.example.calculadora.model.ResponseDTO;
 import com.example.calculadora.operations.RestarOpt;
 import com.example.calculadora.operations.SumarOpt;
 import io.micrometer.common.util.StringUtils;
+
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
+
 import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
@@ -16,7 +20,7 @@ import java.util.stream.Collectors;
 
 @Service
 public class OptServiceImpl implements IOptService{
-
+    Logger logger = LogManager.getLogger(OptServiceImpl.class);
     /**
      * Implementation of sumar Action
      * @param values list of values
@@ -24,6 +28,7 @@ public class OptServiceImpl implements IOptService{
      */
     @Override
     public ResponseDTO sumarOpt(List<String> values) throws ParsingException {
+        logger.trace("Init - sumarOPT");
         SumarOpt sumar = new SumarOpt();
         return operationExec(values,sumar);
     }
@@ -35,6 +40,7 @@ public class OptServiceImpl implements IOptService{
      */
     @Override
     public ResponseDTO restarOpt(List<String> values) throws ParsingException {
+        logger.trace("Init - restarOpt");
         RestarOpt restarOpt = new RestarOpt();
         return operationExec(values,restarOpt);
     }
@@ -71,12 +77,14 @@ public class OptServiceImpl implements IOptService{
         // Check if str is numeric
         for(String str: values){
             if(!isNumeric(str)){
+                logger.error("checkValues:: Error when parsing values");
+                TracerSingleton.getInstance().trace("checkValues:: Error when parsing values");
                 throw new ParsingException("Error: Parsing imposible");
             }
         }
 
         List<Double> res = values.stream().map( value -> Double.valueOf(value)).collect(Collectors.toList());
-
+        logger.debug("checkValues:: res {}",res.toString());
         return res;
     }
 
