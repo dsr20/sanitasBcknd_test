@@ -1,0 +1,11 @@
+Run the Spring boot application with the java -jar command:
+$ java -jar target/demo-0.0.1-SNAPSHOT.jar
+
+If you have installed Maven on your machine, then use the following Maven command to run a Spring Boot application:
+$ mvn spring-boot:run
+
+To perform a subs operation
+http://localhost:8080/calculadora/resta?values=1,6
+
+To perform an add operation
+http://localhost:8080/calculadora/suma?values=1,6
