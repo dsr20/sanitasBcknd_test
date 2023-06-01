@@ -4,5 +4,5 @@ import java.util.List;
 
 public interface IOperacion {
 
-    public int exec(List<Integer> values);
+    public Double exec(List<Double> values);
 }

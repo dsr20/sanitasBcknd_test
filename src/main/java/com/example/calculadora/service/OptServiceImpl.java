@@ -3,6 +3,7 @@ package com.example.calculadora.service;
 import com.example.calculadora.exceptions.ParsingException;
 import com.example.calculadora.operations.IOperacion;
 import com.example.calculadora.model.ResponseDTO;
+import com.example.calculadora.operations.RestarOpt;
 import com.example.calculadora.operations.SumarOPT;
 import io.micrometer.common.util.StringUtils;
 import org.springframework.stereotype.Service;
@@ -33,8 +34,8 @@ public class OptServiceImpl implements IOptService{
      */
     @Override
     public ResponseDTO restarOpt(List<String> values){
-        SumarOPT sumar = new SumarOPT();
-        return operationExec(values,sumar);
+        RestarOpt restarOpt = new RestarOpt();
+        return operationExec(values,restarOpt);
     }
 
     /**
@@ -44,7 +45,7 @@ public class OptServiceImpl implements IOptService{
      * @return result
      */
     private ResponseDTO operationExec(List<String> values, IOperacion opt) {
-        List<Integer> listValues = checkValues(values);
+        List<Double> listValues = checkValues(values);
         ResponseDTO resp = new ResponseDTO();
         resp.setResult(opt.exec(listValues));
         return resp.buildResponse();
@@ -55,7 +56,7 @@ public class OptServiceImpl implements IOptService{
      * @param values list of Parameters
      * @return list of parsed Integer values
      */
-    private List<Integer> checkValues(List<String> values) {
+    private List<Double> checkValues(List<String> values) {
         if(Objects.isNull(values)){
             return new ArrayList<>();
         }
@@ -69,7 +70,7 @@ public class OptServiceImpl implements IOptService{
             }
         }
 
-        List<Integer> res = values.stream().map( value -> Integer.valueOf(value)).collect(Collectors.toList());
+        List<Double> res = values.stream().map( value -> Double.valueOf(value)).collect(Collectors.toList());
 
         return res;
     }

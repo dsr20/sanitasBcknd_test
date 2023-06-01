@@ -9,7 +9,7 @@ public class ResponseDTO {
 
     @Getter
     @Setter
-    private int result;
+    private Double result;
 
     public ResponseDTO buildResponse(){return this;}
 }

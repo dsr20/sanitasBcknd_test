@@ -3,14 +3,14 @@ package com.example.calculadora.operations;
 import java.util.List;
 
 /**
- * Class who perfoms Restar Operations and return de result
+ * Class who perfoms Sumar Operations and return de result
  */
-public class RestarOpt implements IOperacion {
+public class SumarOPT implements IOperacion {
     @Override
     public Double exec(List<Double> values) {
         Double result = 0.0;
         for(Double val:values){
-            result = val - result;
+            result = val + result;
         }
         return result;
     }
