@@ -2,6 +2,8 @@ package com.example.calculadora.controller;
 
 import com.example.calculadora.model.ResponseDTO;
 import com.example.calculadora.service.OptServiceImpl;
+import io.corp.calculator.TracerAPI;
+import io.corp.calculator.TracerImpl;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.web.bind.annotation.*;
