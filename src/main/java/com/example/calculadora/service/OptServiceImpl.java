@@ -23,7 +23,7 @@ public class OptServiceImpl implements IOptService{
      * @return response with the result
      */
     @Override
-    public ResponseDTO sumarOpt(List<String> values){
+    public ResponseDTO sumarOpt(List<String> values) throws ParsingException {
         SumarOpt sumar = new SumarOpt();
         return operationExec(values,sumar);
     }
@@ -34,7 +34,7 @@ public class OptServiceImpl implements IOptService{
      * @return response with the result
      */
     @Override
-    public ResponseDTO restarOpt(List<String> values){
+    public ResponseDTO restarOpt(List<String> values) throws ParsingException {
         RestarOpt restarOpt = new RestarOpt();
         return operationExec(values,restarOpt);
     }
@@ -45,9 +45,10 @@ public class OptServiceImpl implements IOptService{
      * @param opt operation to perform
      * @return result
      */
-    private ResponseDTO operationExec(List<String> values, IOperacion opt) {
+    private ResponseDTO operationExec(List<String> values, IOperacion opt) throws ParsingException {
         List<Double> listValues = checkValues(values);
         ResponseDTO resp = new ResponseDTO();
+
         resp.setResult(opt.exec(listValues));
 
         // Using Tracer API
@@ -60,7 +61,7 @@ public class OptServiceImpl implements IOptService{
      * @param values list of Parameters
      * @return list of parsed Integer values
      */
-    private List<Double> checkValues(List<String> values) {
+    private List<Double> checkValues(List<String> values) throws ParsingException {
         if(Objects.isNull(values)){
             return new ArrayList<>();
         }
@@ -70,7 +71,7 @@ public class OptServiceImpl implements IOptService{
         // Check if str is numeric
         for(String str: values){
             if(!isNumeric(str)){
-                throw new ParsingException();
+                throw new ParsingException("Error: Parsing imposible");
             }
         }
 

@@ -8,14 +8,14 @@ import java.util.Objects;
 
 public class TracerSingleton {
 
-    private static TracerAPI instance;
+    private static TracerImpl instance;
 
     private TracerSingleton(){
         // Do nothing
     }
-    public static synchronized TracerAPI getInstance(){
+    public static synchronized TracerImpl getInstance(){
         if(Objects.isNull(instance)){
-            instance = (TracerAPI) new TracerImpl();
+            instance = new TracerImpl();
         }
         return instance;
     }
