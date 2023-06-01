@@ -1,30 +1,20 @@
 package com.example.calculadora.controller;
 
 
-
-import static org.hamcrest.CoreMatchers.containsString;
-
-import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.get;
-import static org.springframework.test.web.servlet.result.MockMvcResultHandlers.print;
-import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.content;
-import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
-
-import com.example.calculadora.model.ResponseDTO;
 import com.example.calculadora.service.OptServiceImpl;
-import org.junit.Assert;
+
 import org.junit.Before;
+import org.junit.Test;
 import org.junit.internal.runners.JUnit4ClassRunner;
-import org.junit.jupiter.api.Test;
+
 
 import org.junit.runner.RunWith;
 import org.mockito.*;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.boot.test.autoconfigure.web.servlet.WebMvcTest;
-import org.springframework.test.web.servlet.MockMvc;
+
 
 import java.util.ArrayList;
 
-@WebMvcTest
 @RunWith(JUnit4ClassRunner.class)
 public class CalculadoraControllerTest {
 
