@@ -1,5 +1,6 @@
 package com.example.calculadora.service;
 
+import com.example.calculadora.configuration.TracerSingleton;
 import com.example.calculadora.exceptions.ParsingException;
 import com.example.calculadora.operations.IOperacion;
 import com.example.calculadora.model.ResponseDTO;
@@ -48,6 +49,9 @@ public class OptServiceImpl implements IOptService{
         List<Double> listValues = checkValues(values);
         ResponseDTO resp = new ResponseDTO();
         resp.setResult(opt.exec(listValues));
+
+        // Using Tracer API
+        TracerSingleton.getInstance().trace(resp.getResult());
         return resp.buildResponse();
     }
 
