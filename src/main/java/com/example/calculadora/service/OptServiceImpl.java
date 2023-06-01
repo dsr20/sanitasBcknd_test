@@ -79,7 +79,7 @@ public class OptServiceImpl implements IOptService{
             if(!isNumeric(str)){
                 logger.error("checkValues:: Error when parsing values");
                 TracerSingleton.getInstance().trace("checkValues:: Error when parsing values");
-                throw new ParsingException("Error: Parsing imposible");
+                return new ArrayList<>();
             }
         }
 
