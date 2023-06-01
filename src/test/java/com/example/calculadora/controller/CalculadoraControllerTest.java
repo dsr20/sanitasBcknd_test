@@ -29,7 +29,12 @@ public class CalculadoraControllerTest {
     }
 
     @Test
-    public void helloWorldTest() throws Exception {
+    public void sumaOptTest() throws Exception {
+        Assert.assertEquals(calculadoraCtrl.hello(),"Hello World");
+    }
+
+    @Test
+    public void restaOptTest() throws Exception {
         Assert.assertEquals(calculadoraCtrl.hello(),"Hello World");
     }
 }
