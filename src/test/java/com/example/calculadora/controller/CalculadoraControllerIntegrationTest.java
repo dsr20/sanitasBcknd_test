@@ -1,7 +1,6 @@
 package com.example.calculadora.controller;
 
 
-import com.example.calculadora.CalculadoraController;
 
 import static org.hamcrest.CoreMatchers.containsString;
 
@@ -18,7 +17,7 @@ import org.springframework.boot.test.autoconfigure.web.servlet.WebMvcTest;
 import org.springframework.test.web.servlet.MockMvc;
 
 @WebMvcTest
-public class CalculadoraControllerTest {
+public class CalculadoraControllerIntegrationTest {
 
     @Autowired
     private CalculadoraController calculadoraCtrl;

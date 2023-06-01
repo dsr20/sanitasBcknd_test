@@ -1,4 +1,4 @@
-package com.example.calculadora.model;
+package com.example.calculadora.operations;
 
 import java.util.List;
 

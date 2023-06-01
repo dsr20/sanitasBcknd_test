@@ -1,8 +1,8 @@
-package com.example.calculadora.model;
+package com.example.calculadora.operations;
 
 import java.util.List;
 
-public class SumarOPTImp implements IOperacion{
+public class SumarOPT implements IOperacion {
     @Override
     public int exec(List<Integer> values) {
         return 0;
