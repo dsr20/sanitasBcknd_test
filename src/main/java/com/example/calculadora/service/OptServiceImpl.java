@@ -4,7 +4,7 @@ import com.example.calculadora.exceptions.ParsingException;
 import com.example.calculadora.operations.IOperacion;
 import com.example.calculadora.model.ResponseDTO;
 import com.example.calculadora.operations.RestarOpt;
-import com.example.calculadora.operations.SumarOPT;
+import com.example.calculadora.operations.SumarOpt;
 import io.micrometer.common.util.StringUtils;
 import org.springframework.stereotype.Service;
 
@@ -23,7 +23,7 @@ public class OptServiceImpl implements IOptService{
      */
     @Override
     public ResponseDTO sumarOpt(List<String> values){
-        SumarOPT sumar = new SumarOPT();
+        SumarOpt sumar = new SumarOpt();
         return operationExec(values,sumar);
     }
 

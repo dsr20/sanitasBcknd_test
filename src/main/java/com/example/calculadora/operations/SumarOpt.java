@@ -5,7 +5,7 @@ import java.util.List;
 /**
  * Class who perfoms Sumar Operations and return de result
  */
-public class SumarOPT implements IOperacion {
+public class SumarOpt implements IOperacion {
     @Override
     public Double exec(List<Double> values) {
         Double result = 0.0;
